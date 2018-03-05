@@ -1,0 +1,16 @@
+pipeline{
+agent any{
+	stages{
+		stage('Build 1'){
+		steps{
+		read file ('index.html')
+		}
+		}
+		stage('Test'){
+			steps{
+			read file('test.html')
+			}
+		}
+	}
+}
+}

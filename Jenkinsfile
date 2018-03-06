@@ -17,8 +17,17 @@ pipeline {
       }
     }
     stage('test') {
-      steps {
-        readFile 'test.html'
+      parallel {
+        stage('test') {
+          steps {
+            readFile 'test.html'
+          }
+        }
+        stage('test read') {
+          steps {
+            fileExists 'test.html'
+          }
+        }
       }
     }
     stage('done') {

@@ -28,6 +28,11 @@ pipeline {
             fileExists 'test.html'
           }
         }
+        stage('verify') {
+          steps {
+            fileExists 'web.txt'
+          }
+        }
       }
     }
     stage('done') {

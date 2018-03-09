@@ -24,6 +24,7 @@ pipeline {
     stage('done') {
       steps {
         writeFile(file: 'deploy.html', text: 'deployment done')
+        waitForQualityGate()
       }
     }
   }
